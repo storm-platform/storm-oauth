@@ -59,4 +59,4 @@ About
 =====
 
 
-A BDC OAuth based module to user authentication on Storm platform components.
+A BDC OAuth based module to user authentication in the Storm platform components.
