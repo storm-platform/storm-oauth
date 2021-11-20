@@ -7,7 +7,7 @@
 
 
 =============================================
-Authentication module for the Storm platform.
+Authentication module for the Storm platform
 =============================================
 
 
@@ -50,4 +50,4 @@ About
 =====
 
 
-A BDC OAuth based module to user authentication in the Storm platform components.
+A Brazil Data Cube based OAuth 2.0 Client authentication module for the Storm platform.
