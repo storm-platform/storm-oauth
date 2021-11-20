@@ -18,7 +18,7 @@ from functools import partial
 
 from bdc_auth_client.decorators import oauth2 as oauth2base
 
-from storm_oauth.models import OAuthUser
+from .models import OAuthUser
 
 
 def oauth2access():
