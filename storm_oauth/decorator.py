@@ -6,18 +6,25 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-from flask import g
+from flask import current_app, _request_ctx_stack
 
-from invenio_access import authenticated_user
-from flask_principal import Identity, Need
+from flask_principal import (
+    identity_changed,
+    Identity,
+    Need,
+)
+
+from functools import partial
 
 from bdc_auth_client.decorators import oauth2 as oauth2base
 
+from storm_oauth.models import OAuthUser
 
-def oauth2access(func, **kwargs):
+
+def oauth2access():
     """Brazil Data Cube OAuth 2.0 authentication client.
 
-    This decorator validates user entries on the Brazil Data Cube OAuth 2.0 service. After
+    This function validates user entries on the Brazil Data Cube OAuth 2.0 service. After
     validation, a `flask_principal.Identity` is defined to use the Invenio Framework functionality.
 
     Args:
@@ -29,21 +36,31 @@ def oauth2access(func, **kwargs):
         callable: Wrapper function.
     """
 
-    @oauth2base(**kwargs)
-    def wrapper(*args, **kwargs):
+    @oauth2base()
+    def _authentication(*args, **kwargs):
         # getting user profile
         user_id = kwargs["user_id"]
+        user_email = kwargs.get("email", None)
 
         # creating the base user identity
-        user_profile_identity = Identity(user_id)
-        user_profile_identity.provides.add(authenticated_user)
-        user_profile_identity.provides.add(Need(method="id", value=user_id))
+        user_identity = Identity(user_id)
 
-        # `identity` is used by invenio framework services to validate the permissions
-        g.identity = user_profile_identity
-        return func(*args, **kwargs)
+        # `system_role` is extracted from `invenio-access` module to reduce library dependencies
+        # on this module.
+        user_identity.provides.add(partial(Need, "system_role"))
+        user_identity.provides.add(Need(method="id", value=user_id))
 
-    return wrapper
+        # defining the logged user
+        user_obj = OAuthUser(id=user_id, email=user_email)
+
+        # setting the user in the identity and the context stack
+        user_identity.user = user_obj
+        _request_ctx_stack.top.user = user_obj
+
+        # updating the flask-principal request identity
+        identity_changed.send(current_app._get_current_object(), identity=user_identity)
+
+    _authentication()
 
 
 __all__ = "oauth2access"
