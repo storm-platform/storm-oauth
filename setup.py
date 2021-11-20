@@ -6,7 +6,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""Authentication module for the Storm platform.."""
+"""Authentication module for the Storm platform."""
 
 import os
 
@@ -45,9 +45,10 @@ extras_require["all"] = [req for _, reqs in extras_require.items() for req in re
 
 setup_requires = [
     "pytest-runner>=5.2",
-    "cacheout>=0.13.1",
-    # Invenio Dependencies
-    "invenio-access>=1.4.2",
+    # Flask dependencies
+    "Flask-Security>=3.0.0",
+    "Flask-Principal>=0.4.0",
+    "Werkzeug>=2.0.2"
     # Brazil Data Cube Dependencies
     "bdc-auth-client @ git+https://github.com/brazil-data-cube/bdc-auth-client@v0.2.3",
 ]
@@ -69,10 +70,10 @@ setup(
     description=__doc__,
     long_description=readme + "\n\n" + history,
     long_description_content_type="text/x-rst",
-    keywords=["Time series", "Earth Observations"],
+    keywords=["OAuth 2.0", "Brazil Data Cube", "Authentication"],
     license="MIT",
-    author="Brazil Data Cube Team",
-    author_email="brazildatacube@inpe.br",
+    author="Felipe Menino Carlos",
+    author_email="felipe.carlos@inpe.br",
     url="https://github.com/storm-platform/storm-oauth",
     project_urls={
         "Repository": "https://github.com/storm-platform/storm-oauth",
