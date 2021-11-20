@@ -9,7 +9,7 @@
 """Authentication module for the Storm platform.."""
 
 from .ext import StormOAuth
-from .decorator import oauth2access
+from .auth import oauth2access
 
 from .version import __version__
 

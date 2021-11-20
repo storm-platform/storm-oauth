@@ -26,14 +26,6 @@ def oauth2access():
 
     This function validates user entries on the Brazil Data Cube OAuth 2.0 service. After
     validation, a `flask_principal.Identity` is defined to use the Invenio Framework functionality.
-
-    Args:
-        func (callable): Decorated function
-
-        kwargs (dict): Parameters passed to `bdc_auth_client.decorators.oauth2`.
-
-    Returns:
-        callable: Wrapper function.
     """
 
     @oauth2base()
