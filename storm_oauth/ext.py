@@ -10,6 +10,8 @@
 
 from . import config
 
+from .auth import oauth2access, oauth2access_logout
+
 
 class StormOAuth(object):
     """storm-oauth extension."""
@@ -22,6 +24,8 @@ class StormOAuth(object):
     def init_app(self, app):
         """Flask application initialization."""
         self.init_config(app)
+        self.init_oauth(app)
+
         app.extensions["storm-oauth"] = self
 
     def init_config(self, app):
@@ -29,3 +33,19 @@ class StormOAuth(object):
         for k in dir(config):
             if k.startswith("BDC_AUTH_"):
                 app.config.setdefault(k, getattr(config, k))
+
+    def init_oauth(self, app):
+        """Initialize the Brazil Data Cube OAuth 2.0 client."""
+
+        #
+        # Before each request
+        #
+        app.before_request(oauth2access)
+
+        #
+        # After each request (even if it has an exception)
+        #
+        app.teardown_request(oauth2access_logout)
+
+
+__all__ = "StormOAuth"

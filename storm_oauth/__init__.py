@@ -6,10 +6,10 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""Authentication module for the Storm platform.."""
+"""Authentication module for the Storm platform."""
 
 from .ext import StormOAuth
-from .auth import oauth2access
+from .auth import oauth2access, oauth2access_logout
 
 from .version import __version__
 
