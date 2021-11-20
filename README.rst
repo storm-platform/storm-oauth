@@ -50,4 +50,10 @@ About
 =====
 
 
-A Brazil Data Cube based OAuth 2.0 Client authentication module for the Storm platform.
+A Brazil Data Cube OAuth 2.0 based Client authentication module for the Storm platform.
+
+Features:
+
+- Integration between Brazil Data Cube OAuth 2.0 and `invenio-accounts <https://invenio-accounts.readthedocs.io/en/latest/>`_;
+- Internal session control per request (Required for invenio modules) based on `Flask-Login <https://flask-login.readthedocs.io/en/latest/>`_;
+- `Flask-Principal <https://pythonhosted.org/Flask-Principal/>`_ integration for useful user identity generation.
