@@ -45,16 +45,16 @@ extras_require["all"] = [req for _, reqs in extras_require.items() for req in re
 
 setup_requires = [
     "pytest-runner>=5.2",
-    # Flask dependencies
-    "Flask-Security>=3.0.0",
-    "Flask-Principal>=0.4.0",
-    "Werkzeug>=2.0.2"
-    # Brazil Data Cube Dependencies
-    "bdc-auth-client @ git+https://github.com/brazil-data-cube/bdc-auth-client@v0.2.3",
 ]
 
 install_requires = [
     "Click>=7.0",
+    # Flask dependencies
+    "Flask-Security>=3.0.0",
+    "Flask-Principal>=0.4.0",
+    "Werkzeug>=2.0.2",
+    # Brazil Data Cube Dependencies
+    "bdc-auth-client @ git+https://github.com/brazil-data-cube/bdc-auth-client@v0.2.3",
 ]
 
 packages = find_packages()
