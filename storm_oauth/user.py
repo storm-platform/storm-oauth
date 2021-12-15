@@ -1,10 +1,9 @@
+# -*- coding: utf-8 -*-
 #
-# This file is part of Access Control module for the Storm platform..
-# Copyright (C) 2021 INPE.
+# Copyright (C) 2021 Storm Project.
 #
-# Authentication module for the Storm platform. is free software; you can redistribute it and/or modify it
-# under the terms of the MIT License; see LICENSE file for more details.
-#
+# storm-oauth is free software; you can redistribute it and/or modify it under
+# the terms of the MIT License; see LICENSE file for more details.
 
 from flask import current_app
 
