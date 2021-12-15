@@ -1,15 +1,15 @@
+# -*- coding: utf-8 -*-
 #
-# This file is part of Access Control module for the Storm platform..
-# Copyright (C) 2021 INPE.
+# Copyright (C) 2021 Storm Project.
 #
-# Authentication module for the Storm platform. is free software; you can redistribute it and/or modify it
-# under the terms of the MIT License; see LICENSE file for more details.
-#
+# storm-oauth is free software; you can redistribute it and/or modify it under
+# the terms of the MIT License; see LICENSE file for more details.
 
-import os
+BDC_AUTH_CLIENT_ID = ""
+"""Brazil Data Cube Auth Client ID."""
 
-BDC_AUTH_CLIENT_ID = os.getenv("BDC_AUTH_CLIENT_ID")
+BDC_AUTH_CLIENT_SECRET = ""
+"""Brazil Data Cube Auth Client secret."""
 
-BDC_AUTH_CLIENT_SECRET = os.getenv("BDC_AUTH_CLIENT_SECRET")
-
-BDC_AUTH_ACCESS_TOKEN_URL = os.getenv("BDC_AUTH_ACCESS_TOKEN_URL")
+BDC_AUTH_ACCESS_TOKEN_URL = ""
+"""Brazil Data Cube Auth Client token."""
