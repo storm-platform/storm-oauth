@@ -10,13 +10,8 @@ Changes
 =======
 
 
-Version 0.1.0
--------------
+Version 0.1.0 (2022-05-27)
+--------------------------------
 
-
-Released 2020
-
-
-- Source code versioning based on `Semantic Versioning 2.0.0 <https://semver.org/>`_.
-
-- License: `MIT <https://github.com/storm-platform/storm-access/blob/master/LICENSE>`_.
+- Initial public API version;
+- Implemented integration between Brazil Data Cube OAuth 2.0 and invenio-accounts.
