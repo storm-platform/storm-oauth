@@ -55,6 +55,7 @@ install_requires = [
     "Werkzeug>=2.0.2",
     # Invenio dependencies
     "invenio-accounts<2.0.0",
+    "invenio-access<2.0.0",
     # Brazil Data Cube Dependencies
     "bdc-auth-client @ git+https://github.com/brazil-data-cube/bdc-auth-client@v0.2.3",
 ]
